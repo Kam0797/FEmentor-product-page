@@ -38,6 +38,11 @@ a {
   }
 }
 
+:root {
+  --text-grey: #777;
+  --text-black: #121;
+  --orange: #f70;
+}
 
 
 

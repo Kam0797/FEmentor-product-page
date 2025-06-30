@@ -1,7 +1,10 @@
 
 .prod-wrapper {
   display: flex;
-  flex-wrap: wrap;
+  border: 1px solid blue
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* flex-wrap: wrap; */
 }
 .prod-image-wrapper {
   width: 50%;
@@ -9,7 +12,7 @@
   justify-content: center;
   align-items: center;
   flex:1;
-  border: 1px dotted red;
+  border: 1px solid red;
   flex-direction: column;
   gap: 8%
 }
@@ -28,9 +31,27 @@
 .prod-desc-wrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   flex: 1;
-  border: 1px dotted blue;
-  min-width: 270px
+  border: 1px solid blue;
+  /* min-width: 270px; */
+  padding: 3%;
+  gap: 10px
+}
+.sneaker-comp {
+  color: var(--text-grey);
+  font-size: 12px;
+  font-weight: 700
+}
+.prod-title {
+  color: var(--text-black);
+  font-size: 2rem;
+  font-weight:700
+}
+.prod-desc-para{
+  font-size: 13px;
+  color: var(--text-grey);
+  font-weight: 500
 }
 
 @media(min-width: 700px) {
@@ -44,6 +65,38 @@
     width: 20%;
     border-radius: 10px
   }
+  .prod-thumbs {
+    display: hidden;
+  }
 }
 @media (max-width: 699px) {
+  .prod-thumbs {
+    display: none;
+  }
+  .product-image-full {
+    width: clamp(300px,100%,450px)
+  }
+  .prod-desc-wrapper {
+    /* width: 100%; */
+    /* aspect-ratio: 1/1 */
+  }
+  .prod-wrapper {
+    flex-direction: column;
+  }
+  .prod-image-wrapper {
+    width: 100%;
+  }
+}
+
+@media (min-width: 451px) and (max-width: 700px) {
+  .product-image-full {
+    border-radius: 20px;
+  }
+  .prod-wrapper {
+    align-items: center
+  }
+  .prod-desc-wrapper {
+    width: 70%
+  }
+
 }

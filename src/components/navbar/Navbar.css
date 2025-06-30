@@ -20,7 +20,7 @@
   gap: 6%
 }
 .menu-text {
-  color: #777;
+  color: var(--text-grey);
   font-weight: 500;
   font-size: 15px
 }

@@ -24,7 +24,8 @@ export default function Product() {
     name: "Fall Limited Edition Sneakers",
     price: "$125.00",
     saving: "50%",
-    fakePrice: "$250.00"
+    fakePrice: "$250.00",
+    descPara: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber sole, they'll withstand everyting the weather has to offer."
   }
   return(
     <>
@@ -46,12 +47,20 @@ export default function Product() {
         {prodDesc.name}
       </div>
       <p className='prod-desc-para'>
-      
+        {prodDesc.descPara}
       </p>
       <div className='price-area'>
         <div className='price'>{prodDesc.price}</div>
         <div className='saving-percent'>{prodDesc.saving}</div>
         <div className='fake-price'><s>{prodDesc.fakePrice}</s></div>
+      </div>
+      <div className='order-area'>
+        <div className='item-count-area'>
+          <button className='item-add'>+</button>
+          <div className='item-count'>0</div>
+          <button className='item-deduct'>-</button>
+        </div>
+        <button className='add-to-cart-button'>Add to cart</button>
       </div>
     </div>
 
