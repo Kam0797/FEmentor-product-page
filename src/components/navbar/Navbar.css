@@ -1,0 +1,76 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: baseline; */
+  max-height: 110px;
+  font-size: 14px
+}
+.comp-name {
+  font-family: Titillium Web;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.navbar-left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid red;
+  flex: 5;
+  gap: 6%
+}
+.menu-text {
+  color: #777;
+  font-weight: 500;
+  font-size: 15px
+}
+.menus {
+  display: flex;
+  justify-content: space-between;
+  gap: 3%;
+  width: 100%;
+  max-width: 360px;
+}
+@media (max-width: 699px) {
+  .menus {
+    display: none;
+  }
+  .navbar-left {
+    padding-left: 4%;
+  }
+  .navbar-right {
+    padding-right: 4%;
+  }
+  .navbar {
+    max-height: 65px
+  }
+}
+.navbar-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border: 1px solid blue;
+  flex: 2;
+  gap: 15%
+}
+.profile-pic {
+  border: 1px solid yellow;
+  height: 50%;
+  aspect-ratio: 1/1;
+  /* padding: 20% */
+}
+.menu-button {
+} 
+@media (min-width: 700px) {
+  .menu-button {
+    display: none;
+  }
+}
+.menu-button {
+  height: 23%;
+  aspect-ratio: 1/1;
+}
+.menu-icon {
+  position: relative;
+  height: 100%
+}
