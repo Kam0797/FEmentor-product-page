@@ -2,6 +2,11 @@ import {useState} from 'react'
 
 import "./Product.css"
 
+// icons
+import itemAddIcon from "../../assets/images/icon-plus.svg"
+import itemDeductIcon from "../../assets/images/icon-minus.svg"
+import cartIcon from "../../assets/images/icon-cart.svg"
+
 export default function Product() {
 
   const [fullImageIndex, setFullImageIndex] = useState(0)
@@ -35,32 +40,40 @@ export default function Product() {
       <div className="prod-thumbs">
         {
           loadedThumbs.map((img,index)=> (
-            <img src={img.src} key={index} className="thumb" alt={"pro"+index} />
+            <div className='thumb'><img src={img.src} key={index} className="thumb-img" alt={"pro"+index} /></div>
           ))
         }
     </div>
     </div>
 
     <div className='prod-desc-wrapper'>
-      <div className='sneaker-comp'>SNEAKER COMPANY</div>
-      <div className='prod-title'>
-        {prodDesc.name}
-      </div>
-      <p className='prod-desc-para'>
-        {prodDesc.descPara}
-      </p>
-      <div className='price-area'>
-        <div className='price'>{prodDesc.price}</div>
-        <div className='saving-percent'>{prodDesc.saving}</div>
-        <div className='fake-price'><s>{prodDesc.fakePrice}</s></div>
-      </div>
-      <div className='order-area'>
-        <div className='item-count-area'>
-          <button className='item-add'>+</button>
-          <div className='item-count'>0</div>
-          <button className='item-deduct'>-</button>
+      <div className='prod-desc-wrapper-inner'>
+        <div className='sneaker-comp'>SNEAKER COMPANY</div>
+        <div className='prod-title'>
+          {prodDesc.name}
         </div>
-        <button className='add-to-cart-button'>Add to cart</button>
+        <p className='prod-desc-para'>
+          {prodDesc.descPara}
+        </p>
+      
+        <div className='price-area'>
+          <div className='price-area-1'>
+            <div className='price'>{prodDesc.price}</div>
+            <div className='saving-percent'>{prodDesc.saving}</div>
+          </div>
+          <div className='fake-price'><s>{prodDesc.fakePrice}</s></div>
+        </div>
+
+        <div className='order-area'>
+          <div className='item-count-area'>
+            <button className='item-add'><img src={itemDeductIcon} alt="-" className="item-deduct-button" /></button>
+            <div className='item-count'>0</div>
+            <button className='item-deduct'><img src={itemAddIcon} alt="+" className="item-add-button" /></button>
+          </div>
+          <button className='add-to-cart-button'>
+              <img src={cartIcon} alt="cart" className="cart-button-icon" /><span className="add-to-cart-button-text">Add to cart</span>
+          </button>
+        </div>
       </div>
     </div>
 

@@ -2,34 +2,42 @@
   display: flex;
   justify-content: space-between;
   /* align-items: baseline; */
-  max-height: 110px;
+  max-height: 89px;
+  border-bottom: 2px solid #eee;
   font-size: 14px
 }
 .comp-name {
-  font-family: Titillium Web;
-  font-size: 27px;
-  font-weight: 700;
+  height: 19%
 }
 
 .navbar-left {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   flex: 5;
-  gap: 6%
+  gap: 7%
 }
 .menu-text {
   color: var(--text-grey);
   font-weight: 500;
-  font-size: 15px
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+}
+.menu-text:hover {
+  border-bottom: 3px solid var(--orange);
+  transition: all 0.1s ease-in-out
 }
 .menus {
+  height: 100%;
   display: flex;
   justify-content: space-between;
-  gap: 3%;
-  width: 100%;
-  max-width: 360px;
+  /* gap: %;  learn!*/
+  /* min */
+  width: clamp(300px,50%,70%);
+  /* width: 270px; */
+  /* max-width: 360px; */
 }
 @media (max-width: 699px) {
   .menus {
@@ -49,15 +57,18 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   flex: 2;
-  gap: 15%
+  gap: 12%
+}
+.cart-button {
+  height: 75%
 }
 .profile-pic {
   border: 1px solid yellow;
-  height: 50%;
+  height: 48%;
   aspect-ratio: 1/1;
-  /* padding: 20% */
+  padding: 5px
 }
 .menu-button {
 } 
