@@ -6,6 +6,7 @@ import "./Navbar.css"
 import profile from "../../assets/images/image-avatar.png"
 import cartIcon from "../../assets/images/icon-cart.svg"
 import menuIcon from "../../assets/images/icon-menu.svg"
+import compNameIcon from "../../assets/images/logo.svg"
 
 export default function Navbar() {
 
@@ -74,7 +75,7 @@ export default function Navbar() {
     <div className="navbar">
       <div className="navbar-left">
         <button className="menu-button"><img className='menu-icon' src={menuIcon} alt="Menu" /></button>
-        <span className="comp-name">sneakers</span>
+        <img className="comp-name" src={compNameIcon} />
         <div className="menus">
           {
             menuItems.map((menuItem,index)=> (
@@ -85,7 +86,7 @@ export default function Navbar() {
         </div>
       </div> 
       <div className="navbar-right">
-        <a href="" ><img src={cartIcon} /></a>
+        <button className='cart-button'><img className='cart-button-icon' src={cartIcon} /></button>
         <img className="profile-pic" src={profile} alt="Profile" />
         
       </div>

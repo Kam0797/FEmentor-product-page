@@ -34,14 +34,17 @@ a {
 
 @media (min-width: 700px) {
   #root {
-    height: 90vh;
+    height: 100vh;
   }
 }
 
 :root {
   --text-grey: #777;
   --text-black: #121;
-  --orange: #f70;
+  --orange: hsl(26, 100%, 55%);
+  --pale-orange: hsl(25, 100%, 94%);
+  --text-white: #eee;
+  --bg-black: var(--text-black)
 }
 
 
