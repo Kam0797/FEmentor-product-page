@@ -1,4 +1,5 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
+import {Context} from '../../Context.jsx'
 
 import "./Product.css"
 
@@ -9,7 +10,18 @@ import cartIcon from "../../assets/images/icon-cart.svg"
 
 export default function Product() {
 
-  const [fullImageIndex, setFullImageIndex] = useState(0)
+  const [fullImageIndex, setFullImageIndex] = useState(0) //fine. not anymore. yes anyway
+  const { itemCount, setItemCount, nInCart, setNInCart} = useContext(Context);
+
+
+
+  //funcs
+  function addItem() {
+    if (itemCount >= 0) setItemCount(count => count+1)
+  }
+  function deductItem() {
+    if (itemCount > 0) setItemCount(count => count-1)
+  }
 
   const thumbImages = import.meta.glob("../../assets/images/thumbs/*.jpg", {eager:true});
   const loadedThumbs = Object.entries(thumbImages).map(([path, module])=> ({
@@ -40,7 +52,7 @@ export default function Product() {
       <div className="prod-thumbs">
         {
           loadedThumbs.map((img,index)=> (
-            <div className='thumb'><img src={img.src} key={index} className="thumb-img" alt={"pro"+index} /></div>
+            <div className='thumb' key={index} ><img src={img.src} className="thumb-img" alt={"pro"+index} /></div>
           ))
         }
     </div>
@@ -66,11 +78,11 @@ export default function Product() {
 
         <div className='order-area'>
           <div className='item-count-area'>
-            <button className='item-add'><img src={itemDeductIcon} alt="-" className="item-deduct-button" /></button>
-            <div className='item-count'>0</div>
-            <button className='item-deduct'><img src={itemAddIcon} alt="+" className="item-add-button" /></button>
+            <button className='item-add' onClick={deductItem} ><img src={itemDeductIcon} alt="-" className="item-deduct-button" /></button>
+            <div className='item-count'>{itemCount}</div>
+            <button className='item-deduct' onClick={addItem}><img src={itemAddIcon} alt="+" className="item-add-button" /></button>
           </div>
-          <button className='add-to-cart-button'>
+          <button className='add-to-cart-button' onClick={()=> setNInCart(count => count+itemCount)}>
               <img src={cartIcon} alt="cart" className="cart-button-icon" /><span className="add-to-cart-button-text">Add to cart</span>
           </button>
         </div>
