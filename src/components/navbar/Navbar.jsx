@@ -2,6 +2,7 @@ import {useContext} from 'react'
 import {Context } from "../../Context.jsx"
 
 import "./Navbar.css"
+import CartCard from './CartCard.jsx'
 
 // images
 import profile from "../../assets/images/image-avatar.png"
@@ -63,7 +64,7 @@ export default function Navbar() {
               <img className='cart-button-icon' src={cartIcon} />
             </div>
           </button>
-          <div className='cart-card'></div>
+          <CartCard />
         </div>
         <img className="profile-pic" src={profile} alt="Profile" />
       </div>
