@@ -60,7 +60,7 @@ export default function Navbar() {
         <div className="just-wrap">
           <button className='cart-button' onClick={()=> {const cartCard = document.querySelector(".cart-card"); cartCard.classList.toggle("show")}}>
             <div height="100%" width="100%">
-              <div className='n-cart-items'>{nInCart}</div>
+              <div className='n-cart-items'>{nInCart < 100? nInCart: "99+"}</div>
               <img className='cart-button-icon' src={cartIcon} />
             </div>
           </button>
