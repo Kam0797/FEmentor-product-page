@@ -52,7 +52,7 @@ export default function Product() {
       <div className="prod-thumbs">
         {
           loadedThumbs.map((img,index)=> (
-            <div className='thumb' key={index} ><img src={img.src} className="thumb-img" alt={"pro"+index} /></div>
+            <div className='thumb' key={index} ><img src={img.src} className="thumb-img" alt={"pro"+index} onClick={()=>setFullImageIndex(index)} /></div>
           ))
         }
     </div>

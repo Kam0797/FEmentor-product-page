@@ -1,6 +1,7 @@
 
 .prod-wrapper {
   display: flex;
+  min-height: 550px;
   /* border: 1px solid blue; */
   
   /* justify-content: center; */
@@ -168,6 +169,7 @@
   }
   .thumb {
     width: 20%;
+    aspect-ratio: 1/1;
     border-radius: 10px;
     overflow: hidden
   }
