@@ -8,6 +8,29 @@ import itemAddIcon from "../../assets/images/icon-plus.svg"
 import itemDeductIcon from "../../assets/images/icon-minus.svg"
 import cartIcon from "../../assets/images/icon-cart.svg"
 
+
+const thumbImages = import.meta.glob("../../assets/images/thumbs/*.jpg", {eager:true});
+export const loadedThumbs = Object.entries(thumbImages).map(([path, module])=> ({
+  path,
+  src: module.default,
+}))
+
+const fullImages = import.meta.glob("../../assets/images/image-product*.jpg", {eager:true});
+const loadedFullImgs = Object.entries(fullImages).map(([path, module]) => ({
+  path,
+  src: module.default
+}))
+
+
+
+export const prodDesc = {
+  name: "Fall Limited Edition Sneakers",
+  price: "125.00",
+  saving: "50%",
+  fakePrice: "250.00",
+  descPara: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber sole, they'll withstand everyting the weather has to offer."
+}
+
 export default function Product() {
 
   const [fullImageIndex, setFullImageIndex] = useState(0) //fine. not anymore. yes anyway
@@ -23,27 +46,6 @@ export default function Product() {
     if (itemCount > 0) setItemCount(count => count-1)
   }
 
-  const thumbImages = import.meta.glob("../../assets/images/thumbs/*.jpg", {eager:true});
-  const loadedThumbs = Object.entries(thumbImages).map(([path, module])=> ({
-    path,
-    src: module.default,
-  }))
-
-  const fullImages = import.meta.glob("../../assets/images/image-product*.jpg", {eager:true});
-  const loadedFullImgs = Object.entries(fullImages).map(([path, module]) => ({
-    path,
-    src: module.default
-  }))
-
-
-
-  const prodDesc = {
-    name: "Fall Limited Edition Sneakers",
-    price: "$125.00",
-    saving: "50%",
-    fakePrice: "$250.00",
-    descPara: "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber sole, they'll withstand everyting the weather has to offer."
-  }
   return(
     <>
     <div className='prod-wrapper'>
@@ -70,19 +72,19 @@ export default function Product() {
       
         <div className='price-area'>
           <div className='price-area-1'>
-            <div className='price'>{prodDesc.price}</div>
+            <div className='price'>${prodDesc.price}</div>
             <div className='saving-percent'>{prodDesc.saving}</div>
           </div>
-          <div className='fake-price'><s>{prodDesc.fakePrice}</s></div>
+          <div className='fake-price'><s>${prodDesc.fakePrice}</s></div>
         </div>
 
         <div className='order-area'>
           <div className='item-count-area'>
-            <button className='item-add' onClick={deductItem} ><img src={itemDeductIcon} alt="-" className="item-deduct-button" /></button>
+            <button className='item-deduct' onClick={deductItem} ><img src={itemDeductIcon} alt="-" className="item-deduct-button" /></button>
             <div className='item-count'>{itemCount}</div>
-            <button className='item-deduct' onClick={addItem}><img src={itemAddIcon} alt="+" className="item-add-button" /></button>
+            <button className='item-add' onClick={addItem}><img src={itemAddIcon} alt="+" className="item-add-button" /></button>
           </div>
-          <button className='add-to-cart-button' onClick={()=> setNInCart(count => count+itemCount)}>
+          <button className='add-to-cart-button' onClick={()=> {setNInCart(count => count+itemCount); setItemCount(0)}}>
               <img src={cartIcon} alt="cart" className="cart-button-icon" /><span className="add-to-cart-button-text">Add to cart</span>
           </button>
         </div>

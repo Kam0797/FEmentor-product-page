@@ -61,7 +61,12 @@
   /* border: 1px solid yellow; */
   height: 48%;
   aspect-ratio: 1/1;
-  padding: 5px
+  padding: 5px;
+  border-radius: 50%
+}
+.profile-pic:hover {
+  outline: 2px solid var(--orange);
+  outline-offset: -5px;
 }
 
 .n-cart-items {
@@ -155,7 +160,7 @@
     top: 240%;
     width: 94vw;
     right: -280%;
-    min-height: 298px;
+    min-height: 255px;
   }
 }
 
@@ -163,9 +168,12 @@
 
 @media (min-width: 451px) and (max-width: 699px) {
   .cart-card {
-    top: 150%;
-    width: 285px
-
+    /* top: 150%; */
+    /* width: 285px */
+    width: 305px;
+    min-height: 215px;
+    top: 200%;
+    right: -300%;
   }
 }
 
