@@ -194,7 +194,7 @@
   .thumb:hover .thumb-img {
     opacity: 0.3
   }
-  .prod-desc-wrapper {
+   .prod-desc-wrapper {
     container-type: inline-size;
     /* width: 100% */
   }
