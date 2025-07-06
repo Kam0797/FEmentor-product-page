@@ -1,14 +1,17 @@
 import {useState, useContext} from 'react'
 import {Context} from '../../Context.jsx'
 
+import Lightbox from './lightbox/Lightbox.jsx'
 import "./Product.css"
 
 // icons
 import itemAddIcon from "../../assets/images/icon-plus.svg"
 import itemDeductIcon from "../../assets/images/icon-minus.svg"
 import cartIcon from "../../assets/images/icon-cart.svg"
+import prevImgIcon from "../../assets/images/icon-previous.svg"
+import nextImgIcon from "../../assets/images/icon-next.svg"
 
-
+// this part need so much reinforement
 const thumbImages = import.meta.glob("../../assets/images/thumbs/*.jpg", {eager:true});
 export const loadedThumbs = Object.entries(thumbImages).map(([path, module])=> ({
   path,
@@ -22,7 +25,6 @@ const loadedFullImgs = Object.entries(fullImages).map(([path, module]) => ({
 }))
 
 
-
 export const prodDesc = {
   name: "Fall Limited Edition Sneakers",
   price: "125.00",
@@ -34,6 +36,7 @@ export const prodDesc = {
 export default function Product() {
 
   const [fullImageIndex, setFullImageIndex] = useState(0) //fine. not anymore. yes anyway
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false)
   const { itemCount, setItemCount, nInCart, setNInCart} = useContext(Context);
 
 
@@ -45,19 +48,53 @@ export default function Product() {
   function deductItem() {
     if (itemCount > 0) setItemCount(count => count-1)
   }
+  function prevImage() {
+    if(fullImageIndex > 0) {
+      setFullImageIndex(index=>index-1)
+    }
+    else if(fullImageIndex <= 0) {
+      setFullImageIndex(loadedFullImgs.length-1)
+    }
+  }
+  function nextImage() {
+    if(fullImageIndex < loadedFullImgs.length-1) {
+      setFullImageIndex(index=>index+1)
+    }
+    else if(fullImageIndex >= loadedFullImgs.length-1) {
+      setFullImageIndex(0)
+    }
+  }
+
+  // function openLightbox() {
+//   console.log("i work");
+  //   return(
+  //   <Lightbox>
+  //     <div className="prod-image-wrapper">
+  //       <img src={loadedFullImgs[fullImageIndex].src} alt="Product image" className="product-image-full" />
+  //       <div className="prod-thumbs">
+  //         {
+  //           loadedThumbs.map((img,index)=> (
+  //             <div className='thumb' key={index} ><img src={img.src} className="thumb-img" alt={"pro"+index} onClick={()=>setFullImageIndex(index)} /></div>
+  //           ))
+  //         }
+  //       </div>
+  //     </div>      
+  //   </Lightbox>
+  //   );
+  // }
 
   return(
     <>
     <div className='prod-wrapper'>
     <div className="prod-image-wrapper">
-      <img src={loadedFullImgs[fullImageIndex].src} alt="Product image" className="product-image-full" />
+      <img src={loadedFullImgs[fullImageIndex].src} alt="Product image" onClick={()=>{setIsLightboxOpen(true);console.log("fu")}} className="product-image-full" />
       <div className="prod-thumbs">
         {
           loadedThumbs.map((img,index)=> (
             <div className='thumb' key={index} ><img src={img.src} className="thumb-img" alt={"pro"+index} onClick={()=>setFullImageIndex(index)} /></div>
           ))
         }
-    </div>
+      </div>
     </div>
 
     <div className='prod-desc-wrapper'>
@@ -92,6 +129,24 @@ export default function Product() {
     </div>
 
     </div>
+    {
+      isLightboxOpen && (
+      <Lightbox closeLightbox={()=>setIsLightboxOpen(false)}>
+        <div className='lb-product-image-full-wrapper' style={{position: 'relative'}}>
+          <button className='prev-img-button' onClick={prevImage} ><img src={prevImgIcon} /> </button>
+          <button className='next-img-button' onClick={nextImage} ><img src={nextImgIcon} /> </button>
+        <img src={loadedFullImgs[fullImageIndex].src} alt="Product image" className="lb-product-image-full" />
+        </div>  
+        <div className="lb-prod-thumbs">
+            {
+              loadedThumbs.map((img,index)=> (
+                <div className='lb-thumb' key={index} ><img src={img.src} className="thumb-img" alt={"pro"+index} onClick={()=>setFullImageIndex(index)} /></div>
+              ))
+            }
+          </div>
+      </Lightbox>
+      )
+    }
     </>
   )
 }
