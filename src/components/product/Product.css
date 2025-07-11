@@ -166,7 +166,17 @@
 }
 .item-count-area, .add-to-cart-button {
 }
-
+.not-lb-left, .not-lb-right {
+  position: absolute;
+  top: 25%;
+  scale: 0.6;
+}
+.not-lb-left {
+  left: 0%
+}
+.not-lb-right {
+  right: 0%
+}
 
 
 /* for desktop */
@@ -197,6 +207,9 @@
    .prod-desc-wrapper {
     container-type: inline-size;
     /* width: 100% */
+  }
+  .not-lb-left, .not-lb-right {
+    display: none;
   }
   @container (max-width: 379px){
     /* .prod-desc-wrapper-inner { */

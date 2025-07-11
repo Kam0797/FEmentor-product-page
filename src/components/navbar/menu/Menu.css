@@ -1,0 +1,40 @@
+.menu-wrapper {
+  position: fixed;
+  display:none;
+  left:0;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index:10;
+  background: #00000088;
+  backdrop-filter: blur(3px)
+  
+
+}
+.menu-inbox {
+  min-width: 55vw;
+  display: flex;
+  flex-direction: column;
+  background: #fff
+}
+.close-menu {
+  display: flex;
+  padding: 11% 7%;
+}
+.menu-item-mob {
+  margin: 5%;
+  display: flex;
+  font-weight: 700;
+  color: var(--text-black);
+  font-size:1.2rem
+  
+}
+
+.menu-show {
+  display: none;
+}
+@media(min-width: 451px) {
+  .menu-wrapper {
+    display: none;
+  }
+}
