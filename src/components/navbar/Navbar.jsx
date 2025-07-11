@@ -1,8 +1,9 @@
-import {useContext} from 'react'
+import {useContext, useEffect} from 'react'
 import {Context } from "../../Context.jsx"
 
 import "./Navbar.css"
 import CartCard from './CartCard.jsx'
+import Menu from "./menu/Menu.jsx"
 
 // images
 import profile from "../../assets/images/image-avatar.png"
@@ -10,11 +11,7 @@ import cartIcon from "../../assets/images/icon-cart.svg"
 import menuIcon from "../../assets/images/icon-menu.svg"
 import compNameIcon from "../../assets/images/logo.svg"
 
-
-
-export default function Navbar() {
-
-  const menuItems = [
+ export const menuItems = [
     {
       item: "Collection",
       href: ""
@@ -37,6 +34,8 @@ export default function Navbar() {
     }
   ];
 
+export default function Navbar() {
+
   const { nInCart, setNICart, itemCount } = useContext(Context)
 
 
@@ -44,7 +43,8 @@ export default function Navbar() {
     <>
     <div className="navbar">
       <div className="navbar-left">
-        <button className="menu-button"><img className='menu-icon' src={menuIcon} alt="Menu" /></button>
+          <Menu />
+        <button className="menu-button"><img className='menu-icon' src={menuIcon} alt="Menu" onClick={()=>document.querySelector(".menu-wrapper").style.display="flex"}/></button>
         <img className="comp-name" src={compNameIcon} />
         <div className="menus">
           {
