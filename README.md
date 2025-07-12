@@ -1,6 +1,6 @@
 # A Product page - FrontEnd Mentor Challenge
 
-The page is live [herev](https://Kam0797.github.io/FEmentor-product-page/)
+The page is live [here](https://Kam0797.github.io/FEmentor-product-page/)
 
 ## Key features
   - Highly responsive design
