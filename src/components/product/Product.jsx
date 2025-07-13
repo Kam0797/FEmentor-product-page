@@ -87,9 +87,11 @@ export default function Product() {
     <>
     <div className='prod-wrapper'>
     <div className="prod-image-wrapper">
+      <fragment className="wraptowrap" >
           <button className='prev-img-button not-lb-left' onClick={prevImage} ><img src={prevImgIcon} /> </button>
           <button className='next-img-button not-lb-right' onClick={nextImage} ><img src={nextImgIcon} /> </button>
-      <img src={loadedFullImgs[fullImageIndex].src} alt="Product image" onClick={()=>{setIsLightboxOpen(true);console.log("fu")}} className="product-image-full" />
+      <img src={loadedFullImgs[fullImageIndex].src} alt="Product image" onClick={()=>{setIsLightboxOpen(true);}} className="product-image-full" />
+        </fragment>
       <div className="prod-thumbs">
         {
           loadedThumbs.map((img,index)=> (

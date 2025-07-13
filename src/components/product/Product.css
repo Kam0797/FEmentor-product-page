@@ -2,11 +2,6 @@
 .prod-wrapper {
   display: flex;
   min-height: 600px;
-  /* border: 1px solid blue; */
-  
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* flex-wrap: wrap; */
 }
 .prod-image-wrapper {
   /* padding-right: 2%; */
@@ -15,13 +10,12 @@
   justify-content: center;
   align-items: center;
   flex:1;
-  /* border: 1px solid red; */
   flex-direction: column;
   gap: 4%;
   
 }
 .product-image-full {
-  width: 81%;
+  width: 100%;
   min-width: 260px
 }
 .prod-thumbs {
@@ -30,7 +24,6 @@
   gap: 5%;
   width: 81%;
   min-width: 265px;
-  /* border: 1px solid */
 }
 
 .prod-desc-wrapper {
@@ -41,9 +34,6 @@
   flex: 1;
   /* border: 1px solid blue; */
   height: 97%;
-  /* min-width: 270px; */
-  /* padding: 3%; */
-  /* gap: 10px */
 }
 .prod-desc-wrapper-inner {
   /* padding-left:2%; */
@@ -108,7 +98,6 @@
 .order-area {
   display: flex;
   width: 101%;
-  /* border: 1px solid; */
   justify-content: space-between;
   align-items: center;
   gap: 10px;
@@ -156,7 +145,6 @@
   color: var(--text-black)
 }
 .add-to-cart-button:hover {
-  /* background: #ff7d1ac0; */
   background: #ffac6a;
   transition: background .3s ease-out;
 }
@@ -168,16 +156,21 @@
 }
 .not-lb-left, .not-lb-right {
   position: absolute;
-  top: 25%;
-  scale: 0.6;
+  top: 40%;
+  scale: 1;
 }
 .not-lb-left {
-  left: 0%
+  left: 3%
 }
 .not-lb-right {
-  right: 0%
+  right: 3%
 }
-
+.wraptowrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 81%;
+}
 
 /* for desktop */
 @media(min-width: 700px) {
@@ -199,23 +192,18 @@
   }
   .thumb:hover {
     outline: 2px solid var(--orange);
-    /* opacity: .5 */
   }
   .thumb:hover .thumb-img {
     opacity: 0.3
   }
    .prod-desc-wrapper {
     container-type: inline-size;
-    /* width: 100% */
   }
   .not-lb-left, .not-lb-right {
     display: none;
   }
   @container (max-width: 379px){
-    /* .prod-desc-wrapper-inner { */
-    /*   width: 95%; */
-    /* } */
-    .order-area {
+     .order-area {
       flex-direction: column;
       width: 100%;
       gap: 12px;
@@ -241,7 +229,6 @@
     width: clamp(300px,100%,450px);
     object-fit: cover;
     object-position: center;
-    /* display: flex; */
     aspect-ratio: 8/6.1  /* for FEmentors' sake; i dont find this look-good */
   }
   .prod-desc-wrapper {
@@ -270,8 +257,6 @@
   }
   .item-count-area, .add-to-cart-button {
     flex: 1;
-    /* border: 2px dotted; */
-    /* height: 45px; */
     width: 100%;
     font-size: 1.1rem
   }
@@ -281,12 +266,16 @@
   .sneaker-comp {
     margin-top: 5%
   }
+  .wraptowrap {
+    width: 100%;
+  }
 }
 
 /* trans..ition */
 @media (min-width: 451px) and (max-width: 699px) {
   .product-image-full {
     border-radius: 0px 0px 20px 20px;
+    aspect-ratio: 1/0.95
   }
   .prod-wrapper {
     align-items: center;
@@ -300,8 +289,9 @@
   }
   .order-area {
     flex-direction: row;
-    /* width: 100%; */
-    /* border: 1px solid; */
     height: 45px;
+  }
+  .not-lb-left, .not-lb-right {
+    outline: 1px solid var(--text-grey);
   }
 }
