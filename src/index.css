@@ -2,7 +2,7 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    /* box-sizing: border-box;  read on this ; caused unexpected shift in cart-card -on mobile-width only*/
   }
 button {
   margin: 0;
