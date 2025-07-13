@@ -8,10 +8,9 @@
   z-index:10;
   background: #00000088;
   backdrop-filter: blur(3px);
-  transition: transform 2s ease-out;
-  transform: translate-x(30px)
 }
 .menu-inbox {
+  position: relative;
   min-width: 55vw;
   display: flex;
   flex-direction: column;
@@ -34,8 +33,20 @@
 .menu-show {
   display: none;
 }
-@media(min-width: 451px) {
+.attribution {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* border: 1px solid; */
+}
+.visible {
+  display: flex;
+}
+@media (min-width: 700px) {
   .menu-wrapper {
     display: none;
+  }
+  .menu-wrapper * {
+    border: 1px solid
   }
 }

@@ -126,6 +126,9 @@
   .menu-button {
     display: none;
   }
+  .attribution {
+    width: 350px;
+  }
 }
 .menu-button {
   height: 23%;

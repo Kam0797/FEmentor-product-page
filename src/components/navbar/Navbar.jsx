@@ -25,7 +25,7 @@ import compNameIcon from "../../assets/images/logo.svg"
       href: ""
     },
     {
-      item: "About",
+     item: "About",
       href: ""
     },
     {
@@ -37,16 +37,13 @@ import compNameIcon from "../../assets/images/logo.svg"
 export default function Navbar() {
 
   const { nInCart, setNICart, itemCount } = useContext(Context);
-  // useEffect(()=>{
-  //   document.querySelector(".n-cart-item").style.display = nInCart>0?"flex":"none"
-  // },[nInCart]);
-
+ 
   return(
     <>
     <div className="navbar">
       <div className="navbar-left">
           <Menu />
-        <button className="menu-button"><img className='menu-icon' src={menuIcon} alt="Menu" onClick={()=>document.querySelector(".menu-wrapper").style.display="flex"}/></button>
+        <button className="menu-button"><img className='menu-icon' src={menuIcon} alt="Menu" onClick={()=>document.querySelector(".menu-wrapper").classList.add("visible")}/></button>
         <img className="comp-name" src={compNameIcon} />
         <div className="menus">
           {
