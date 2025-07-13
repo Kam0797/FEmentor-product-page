@@ -36,8 +36,10 @@ import compNameIcon from "../../assets/images/logo.svg"
 
 export default function Navbar() {
 
-  const { nInCart, setNICart, itemCount } = useContext(Context)
-
+  const { nInCart, setNICart, itemCount } = useContext(Context);
+  // useEffect(()=>{
+  //   document.querySelector(".n-cart-item").style.display = nInCart>0?"flex":"none"
+  // },[nInCart]);
 
   return(
     <>
@@ -60,7 +62,7 @@ export default function Navbar() {
         <div className="just-wrap">
           <button className='cart-button' onClick={()=> {const cartCard = document.querySelector(".cart-card"); cartCard.classList.toggle("show")}}>
             <div height="100%" width="100%">
-              <div className='n-cart-items'>{nInCart < 100? nInCart: "99+"}</div>
+              <div className='n-cart-items' style={{display: nInCart<1?"none":"block"}}>{nInCart < 100? nInCart: "99+"}</div>
               <img className='cart-button-icon' src={cartIcon} />
             </div>
           </button>
