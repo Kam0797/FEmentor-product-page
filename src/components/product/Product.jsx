@@ -151,6 +151,9 @@ export default function Product() {
       </Lightbox>
       )
     }
+    <footer className='attribution' style={{position: "static"}}>
+      FrontEnd Mentor project: Product page. Kam - 2025
+    </footer>
     </>
   )
 }
